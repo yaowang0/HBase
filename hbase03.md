@@ -45,3 +45,34 @@ scp -r hbase-1.1.3 root@slave2:/opt/<br>
 start-hbase.sh<br>
 停止：<br>
 stop-hbase.sh<br>
+
+jps:<br>
+HRegionServer<br>
+HMaster<br>
+
+版本依赖：<br>
+https://hbase.apache.org/book.html#basic.prerequisites<br>
+
+UI:<br>
+1.0版本之前端口60010：hostname://60010<br>
+1.0版本之后端口16010：hostname://16010<br>
+
+hdfsUI<br>
+hostname:50070<br>
+在/hbase可以看到HBase的各种数据。<br>
+/data为数据<br>
+
+create 't1','f1','f2','f3'<br>
+desc 't1'<br>
+put 't1','r1','f1:name','zs'<br>
+put 't1','r1','f1:sex','1'<br>
+get 't1','r1','f1'<br>
+get 't1','r1','f1:sex'<br>
+alter 't1',{NAME => 'f1', VERSION => 3}<br>
+put 't1','r1','f1:sex','2'<br>
+put 't1','r1','f1:sex','1'<br>
+get 't1','1',{COLUMN => 'f1:sex', VERSION => 3}<br>
+
+flush命令：<br>
+将memory数据刷到磁盘<br>
+flush 't1'<br>
